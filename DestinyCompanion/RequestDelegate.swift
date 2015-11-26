@@ -14,7 +14,7 @@ public class apiRequests{
     
     
     func getUserId(userName: String, completion: (userId: String, membershipType: Int)->Void){
-        // Get ready to fetch the list of dog videos from YouTube V3 Data API.
+                
         let url = NSURL(string: "http://www.bungie.net/Platform/Destiny/SearchDestinyPlayer/all/\(userName)/")
         let request = NSMutableURLRequest(URL: url!)
         request.addValue(apiKey, forHTTPHeaderField: "X-API-KEY")
@@ -100,7 +100,7 @@ public class apiRequests{
                             if let mergedResults = mergedAllCharacters["results"] as? Dictionary<String, AnyObject>{
                                 if let allPvP = mergedResults["allPvP"] as? Dictionary<String, AnyObject>{
                                     print(allPvP)
-                                }
+                                }	
 
                             }
                             
