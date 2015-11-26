@@ -13,9 +13,9 @@ public class apiRequests{
     lazy var apiKey: String = "5e78813d2af641428d781d921ad9a1c2"
     
     
-    func getUserId(userName: String, completion: (userId: String, membershipType: Int)->Void){
+    func getUserId(userName: String, membershipType: Int, completion: (userId: String, error: String)->Void){
                 
-        let url = NSURL(string: "http://www.bungie.net/Platform/Destiny/SearchDestinyPlayer/all/\(userName)/")
+        let url = NSURL(string: "http://www.bungie.net/Platform/Destiny/SearchDestinyPlayer/\(membershipType)/\(userName)/")
         let request = NSMutableURLRequest(URL: url!)
         request.addValue(apiKey, forHTTPHeaderField: "X-API-KEY")
         request.HTTPMethod = "GET"
@@ -46,9 +46,13 @@ public class apiRequests{
                 
                 if let topLevelObj = parsedObject as? Dictionary<String,AnyObject> {
                     if let items = topLevelObj["Response"] as? Array<Dictionary<String,AnyObject>> {
+                        if(items.count == 0){
+                            completion(userId:" ", error: "MemberName does not exist")
+                        }
+                        else{
                         let memberId = (items[0]["membershipId"]) as! String
-                        let memberType = (items[0]["membershipType"]) as! Int
-                        completion(userId: memberId, membershipType: memberType)
+                        completion(userId: memberId, error: "None")
+                        }
                     }
                 }
                 
@@ -62,7 +66,7 @@ public class apiRequests{
         task.resume()
     }
     
-    func getGames(memberId: String, membershipType: Int, completion: ()->Void){
+    func getPvPStats(memberId: String, membershipType: Int, completion: (pvpStats: Dictionary<String, AnyObject>)->Void){
         
         // Get ready to fetch the list of dog videos from YouTube V3 Data API.
         let url = NSURL(string: "http://www.bungie.net/Platform/Destiny/Stats/Account/\(membershipType)/\(memberId)/")
@@ -99,17 +103,15 @@ public class apiRequests{
                         if let mergedAllCharacters = response["mergedAllCharacters"] as? Dictionary<String,AnyObject>{
                             if let mergedResults = mergedAllCharacters["results"] as? Dictionary<String, AnyObject>{
                                 if let allPvP = mergedResults["allPvP"] as? Dictionary<String, AnyObject>{
-                                    print(allPvP)
-                                }	
-
+                                    if let allTime = allPvP["allTime"] as? Dictionary<String, AnyObject>{
+                                        completion(pvpStats: allTime)
+                                    }
+                                    
+                                }
                             }
-                            
-                            
                         }
-                        
                     }
                 }
-                
             }
                 
             else if let error = error{
