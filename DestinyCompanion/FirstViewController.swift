@@ -19,17 +19,17 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
     @IBOutlet weak var platformImage: UIImageView!
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var statTable: UITableView!
-    
+    @IBOutlet weak var currentPlayerLabel: UITextView!
     
     var memberType: Int = 0
     var memberId: String = ""
     
+    
     var api = apiRequests()
     
-    var items: [String] = ["asdf", "fdas", "123"]
-    var wantedStats: [String] = ["killsDeathsRatio"]
+    var wantedStats: [String] = ["killsDeathsRatio", "winLossRatio", "bestSingleGameScore", "precisionKills", "longestKillSpree"]
     
-    var stats: [String] = ["N/A"]
+    var stats: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +49,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
+        statTable.tableFooterView = UIView()
         
-       
+        self.currentPlayerLabel.textContainer.lineFragmentPadding = 0
+        
+        for _ in wantedStats{
+            stats.append("N/A")
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,6 +75,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
                     else{
                         self.successLabel.text = memberId
                         self.memberId = memberId
+                        self.currentPlayerLabel.text = name
+                        self.currentPlayerLabel.font = UIFont(name: "Helvetica Neue", size: 17)
+                        self.getStatsPressed()
                     }
                     
                 }
@@ -118,7 +127,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
         }
     }
     
-    @IBAction func getStatsPressed(sender: AnyObject) {
+    @IBAction func getStatsPressed() {
         api.getPvPStats(self.memberId, membershipType: self.memberType){pvpStats in
             print("PvP Stats")
             print(pvpStats)
