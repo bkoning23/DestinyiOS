@@ -66,7 +66,7 @@ public class apiRequests{
         task.resume()
     }
     
-    func getPvPStats(memberId: String, membershipType: Int, completion: (pvpStats: Dictionary<String, AnyObject>)->Void){
+    func getCharacterStats(memberId: String, membershipType: Int, completion: (allCharacterStats: Dictionary<String, AnyObject>)->Void){
         
         // Get ready to fetch the list of dog videos from YouTube V3 Data API.
         let url = NSURL(string: "http://www.bungie.net/Platform/Destiny/Stats/Account/\(membershipType)/\(memberId)/")
@@ -98,7 +98,8 @@ public class apiRequests{
                 //print(parsedObject)
                 
                 if let topLevelObj = parsedObject as? Dictionary<String,AnyObject> {
-                    //print(topLevelObj)
+                    completion(allCharacterStats: topLevelObj)
+                    /*
                     if let response = topLevelObj["Response"] as? Dictionary<String,AnyObject> {
                         if let mergedAllCharacters = response["mergedAllCharacters"] as? Dictionary<String,AnyObject>{
                             if let mergedResults = mergedAllCharacters["results"] as? Dictionary<String, AnyObject>{
@@ -111,7 +112,9 @@ public class apiRequests{
                             }
                         }
                     }
+                    */
                 }
+
             }
                 
             else if let error = error{
@@ -120,7 +123,6 @@ public class apiRequests{
             }
         })
         task.resume()
-        
     }
     
     

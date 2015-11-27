@@ -10,10 +10,14 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    var destiny = DestinyModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("Second")
+        destiny = (tabBarController as! DestinyTabBarController).destiny
+        
+        print(destiny.memberId)
     }
 
     override func didReceiveMemoryWarning() {

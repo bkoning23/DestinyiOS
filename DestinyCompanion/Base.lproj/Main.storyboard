@@ -39,11 +39,11 @@
                                     <action selector="searchPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="9Vk-yi-zrV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEW-fC-aKo">
-                                <rect key="frame" x="151" y="343" width="214" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEW-fC-aKo">
+                                <rect key="frame" x="151" y="343" width="214" height="95"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="5KU-fT-T0N"/>
+                                    <constraint firstAttribute="height" constant="95" id="5KU-fT-T0N"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="214" id="Obl-Rz-8RE"/>
                                     <constraint firstAttribute="width" constant="214" id="j3r-QC-Xc3"/>
                                 </constraints>
@@ -79,7 +79,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5a4-Ce-AUe">
@@ -120,7 +120,21 @@
                                 <rect key="frame" x="618" y="66" width="202" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Updated: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMR-2B-oXY">
+                                <rect key="frame" x="618" y="135" width="103" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUM-fU-PyG">
+                                <rect key="frame" x="693" y="135" width="169" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -128,7 +142,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uEW-fC-aKo" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="151" id="06O-CU-nr2"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="uEW-fC-aKo" secondAttribute="bottom" constant="355" id="Bq9-NU-6yb"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="uEW-fC-aKo" secondAttribute="bottom" constant="281" id="Bq9-NU-6yb"/>
                             <constraint firstItem="wn6-6q-ltJ" firstAttribute="leading" secondItem="tJL-yk-6k1" secondAttribute="trailing" constant="25" id="EmB-dB-RIW"/>
                             <constraint firstItem="wn6-6q-ltJ" firstAttribute="bottom" secondItem="tJL-yk-6k1" secondAttribute="bottom" id="Nkk-F0-hjY"/>
                             <constraint firstItem="wn6-6q-ltJ" firstAttribute="top" secondItem="tJL-yk-6k1" secondAttribute="top" id="gRN-rb-iBZ"/>
@@ -146,6 +160,7 @@
                         <outlet property="platformSwitch" destination="qFQ-ad-cB7" id="WAO-yr-PQz"/>
                         <outlet property="statTable" destination="UyA-AN-fYG" id="uTE-NK-pVv"/>
                         <outlet property="successLabel" destination="uEW-fC-aKo" id="hIj-MG-eNz"/>
+                        <outlet property="timeLabel" destination="ZUM-fU-PyG" id="gBT-Wc-ioq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -174,10 +189,10 @@
             </objects>
             <point key="canvasLocation" x="988" y="476"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Destiny Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="DestinyTabBarController" customModule="DestinyCompanion" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
