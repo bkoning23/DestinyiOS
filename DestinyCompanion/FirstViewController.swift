@@ -66,7 +66,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
     @IBAction func searchPressed(sender: AnyObject) {
         let name = nameInput.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         if(isAlphanumeric(name!)){
-            api.getUserId(name!, membershipType: destiny.memberType) {memberId, error in
+            destiny.getUserId(name!, membershipType: destiny.memberType) {memberId, error in
                 dispatch_async(dispatch_get_main_queue()){
                     if(error != "None"){
                         self.successLabel.text = error
@@ -126,7 +126,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
     }
     
     @IBAction func getStatsPressed(sender: AnyObject) {
-        api.getCharacterStats(self.destiny.memberId, membershipType: self.destiny.memberType){characterStats in
+        destiny.getCharacterStats(self.destiny.memberId, membershipType: self.destiny.memberType){characterStats in
             print("PvP Stats")
             self.destiny.characterStats = characterStats
             var pvpStats = self.destiny.findMergedStats(characterStats)

@@ -9,7 +9,7 @@
 import Foundation
 
 public class apiRequests{
-    
+    /*
     lazy var apiKey: String = "5e78813d2af641428d781d921ad9a1c2"
     
     
@@ -124,6 +124,6 @@ public class apiRequests{
         })
         task.resume()
     }
-    
+    */
     
 }
