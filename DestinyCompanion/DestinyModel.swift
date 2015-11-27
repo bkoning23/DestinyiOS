@@ -12,7 +12,7 @@ public class DestinyModel{
     
     var memberType: Int = 0
     var memberId: String = ""
-
+    
     var wantedStats: [String] = ["killsDeathsRatio", "winLossRatio", "bestSingleGameScore", "precisionKills", "longestKillSpree"]
     var displayText: [String] = ["K/D", "Win/Loss", "Best Single Game Score", "Precision Kills", "Longest Kill Spree"]
     var stats: [String] = []
@@ -21,6 +21,7 @@ public class DestinyModel{
     
     var apiKey: String = "5e78813d2af641428d781d921ad9a1c2"
     
+    var statCache = [String: [String: AnyObject]]()
     
     func setMemberType(memberType: Int){
         self.memberType = memberType
@@ -58,7 +59,7 @@ public class DestinyModel{
         let task = session.dataTaskWithRequest(request, completionHandler: {
             (data, response, error) -> Void in
             if let data = data{
-                print("GotData")
+                //print("GotData")
                 /* Debug Only
                 let datastring = NSString(data: data, encoding: NSUTF8StringEncoding)
                 print(datastring)
@@ -75,7 +76,7 @@ public class DestinyModel{
                     fatalError()
                 }
                 
-                print(parsedObject)
+                //print(parsedObject)
                 
                 if let topLevelObj = parsedObject as? Dictionary<String,AnyObject> {
                     if let items = topLevelObj["Response"] as? Array<Dictionary<String,AnyObject>> {
@@ -101,53 +102,74 @@ public class DestinyModel{
     
     func getCharacterStats(memberId: String, membershipType: Int, completion: (allCharacterStats: Dictionary<String, AnyObject>)->Void){
         
-        // Get ready to fetch the list of dog videos from YouTube V3 Data API.
-        let url = NSURL(string: "http://www.bungie.net/Platform/Destiny/Stats/Account/\(membershipType)/\(memberId)/")
-        let request = NSMutableURLRequest(URL: url!)
-        request.addValue(apiKey, forHTTPHeaderField: "X-API-KEY")
-        request.HTTPMethod = "GET"
+        //This is set to 1 if the data is 'expired', or more than 5 minutes old
+        //Defaults to 1 so if there is nothing in the cache it will call API
+        var expiredFlag = 1
         
-        let session = NSURLSession.sharedSession()
-        
-        let task = session.dataTaskWithRequest(request, completionHandler: {
-            (data, response, error) -> Void in
-            if let data = data{
-                /* Debug only
-                print("GotData")
-                let datastring = NSString(data: data, encoding: NSUTF8StringEncoding)
-                print(datastring)
-                */
-                let parsedObject: AnyObject?
-                do {
-                    parsedObject = try NSJSONSerialization.JSONObjectWithData(data,
-                        options: NSJSONReadingOptions.AllowFragments)
-                } catch let error as NSError {
-                    print(error)
-                    return
-                } catch {
-                    fatalError()
+        if let val = statCache[memberId]{
+            print("cache hit")
+            if let savedTime = val["timestamp"] as? NSDate{
+                //This difference is in seconds
+                if (NSDate().timeIntervalSinceDate(savedTime) < 30){
+                    expiredFlag = 0
+                    print("not expired")
+                    if let data = val["data"] as? Dictionary<String, AnyObject>{
+                        completion(allCharacterStats: data)
+                    }
                 }
-                
-                //print(parsedObject)
-                
-                if let topLevelObj = parsedObject as? Dictionary<String,AnyObject> {
-                    completion(allCharacterStats: topLevelObj)
-
+            }
+        }
+        if(expiredFlag == 1){
+            let url = NSURL(string: "http://www.bungie.net/Platform/Destiny/Stats/Account/\(membershipType)/\(memberId)/")
+            print("APICALL getcharstats")
+            let request = NSMutableURLRequest(URL: url!)
+            request.addValue(apiKey, forHTTPHeaderField: "X-API-KEY")
+            request.HTTPMethod = "GET"
+            
+            let session = NSURLSession.sharedSession()
+            
+            let task = session.dataTaskWithRequest(request, completionHandler: {
+                (data, response, error) -> Void in
+                if let data = data{
+                    /* Debug only
+                    print("GotData")
+                    let datastring = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    print(datastring)
+                    */
+                    let parsedObject: AnyObject?
+                    do {
+                        parsedObject = try NSJSONSerialization.JSONObjectWithData(data,
+                            options: NSJSONReadingOptions.AllowFragments)
+                    } catch let error as NSError {
+                        print(error)
+                        return
+                    } catch {
+                        fatalError()
+                    }
+                    
+                    //print(parsedObject)
+                    
+                    if let topLevelObj = parsedObject as? Dictionary<String,AnyObject> {
+                        let tempDict = ["timestamp": NSDate(), "data": topLevelObj]
+                        self.statCache[memberId] = tempDict
+                        completion(allCharacterStats: topLevelObj)
+                        
+                    }
+                    
                 }
-                
-            }
-                
-            else if let error = error{
-                print("FoundError")
-                print(error.description)
-            }
-        })
-        task.resume()
-    }
-    
-
+                    
+                else if let error = error{
+                    print("FoundError")
+                    print(error.description)
+                }
+            })
+            
+            task.resume()
+        }}
     
     
     
-
+    
+    
+    
 }
