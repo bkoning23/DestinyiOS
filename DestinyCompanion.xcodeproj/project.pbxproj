@@ -17,6 +17,7 @@
 		FF08D3DA1BD41B0E00B38287 /* DestinyCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08D3D91BD41B0E00B38287 /* DestinyCompanionTests.swift */; };
 		FF08D3E51BD41B0E00B38287 /* DestinyCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08D3E41BD41B0E00B38287 /* DestinyCompanionUITests.swift */; };
 		FF08D3F31BD454DD00B38287 /* RequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08D3F21BD454DD00B38287 /* RequestDelegate.swift */; };
+		FF56341E1C07F86600422118 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF56341D1C07F86600422118 /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		FF08D3E41BD41B0E00B38287 /* DestinyCompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinyCompanionUITests.swift; sourceTree = "<group>"; };
 		FF08D3E61BD41B0E00B38287 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF08D3F21BD454DD00B38287 /* RequestDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDelegate.swift; sourceTree = "<group>"; };
+		FF56341D1C07F86600422118 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				FF08D3F21BD454DD00B38287 /* RequestDelegate.swift */,
 				FF08D3C41BD41B0E00B38287 /* FirstViewController.swift */,
 				FF08D3C61BD41B0E00B38287 /* SecondViewController.swift */,
+				FF56341D1C07F86600422118 /* ThirdViewController.swift */,
 				FF08D3C81BD41B0E00B38287 /* Main.storyboard */,
 				FF08D3CB1BD41B0E00B38287 /* Assets.xcassets */,
 				FF08D3CD1BD41B0E00B38287 /* LaunchScreen.storyboard */,
@@ -341,6 +344,7 @@
 			files = (
 				FF08D3F31BD454DD00B38287 /* RequestDelegate.swift in Sources */,
 				FF08D3C71BD41B0E00B38287 /* SecondViewController.swift in Sources */,
+				FF56341E1C07F86600422118 /* ThirdViewController.swift in Sources */,
 				FF08D3C31BD41B0E00B38287 /* AppDelegate.swift in Sources */,
 				FF08D3C51BD41B0E00B38287 /* FirstViewController.swift in Sources */,
 			);
