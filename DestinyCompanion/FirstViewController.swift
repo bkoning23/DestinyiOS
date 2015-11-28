@@ -11,6 +11,7 @@ import Alamofire
 
 class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
    
+    
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var successLabel: UILabel!
@@ -19,8 +20,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var statTable: UITableView!
     @IBOutlet weak var currentPlayerLabel: UITextView!
-    
-    var api = apiRequests()
     
     var destiny = DestinyModel()
     
@@ -75,7 +74,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
                         self.successLabel.text = memberId
                         self.destiny.setMemberId(memberId)
                         self.currentPlayerLabel.text = name
-                        self.currentPlayerLabel.font = UIFont(name: "Helvetica Neue", size: 17)
+                        self.currentPlayerLabel.font = UIFont(name: "Helvetica Neue", size: 20)
                         self.getStatsPressed(self)
                     }          
                 }
@@ -174,6 +173,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
     
     func dismissKeyboard(){
         view.endEditing(true)
+    }
+    
+    @IBAction func setPrimaryGuardian(sender: AnyObject) {
+        destiny.setPrimaryGuardian()
+        print("Primary Guardian is: \(destiny.primaryGuardianId)")
     }
 
     

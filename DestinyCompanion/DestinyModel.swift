@@ -23,12 +23,18 @@ public class DestinyModel{
     
     var statCache = [String: [String: AnyObject]]()
     
+    var primaryGuardianId: String = ""
+    
     func setMemberType(memberType: Int){
         self.memberType = memberType
     }
     
     func setMemberId(memberId: String){
         self.memberId = memberId
+    }
+    
+    func setPrimaryGuardian(){
+        self.primaryGuardianId = self.memberId
     }
     
     func findMergedStats(statDict: Dictionary<String, AnyObject>) -> Dictionary<String, AnyObject>{
@@ -110,7 +116,7 @@ public class DestinyModel{
             print("cache hit")
             if let savedTime = val["timestamp"] as? NSDate{
                 //This difference is in seconds
-                if (NSDate().timeIntervalSinceDate(savedTime) < 30){
+                if (NSDate().timeIntervalSinceDate(savedTime) < 300){
                     expiredFlag = 0
                     print("not expired")
                     if let data = val["data"] as? Dictionary<String, AnyObject>{
