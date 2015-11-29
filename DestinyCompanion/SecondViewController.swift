@@ -146,6 +146,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             dispatch_async(dispatch_get_main_queue()) {
                 self.tableViewOne.reloadData()
                 self.tableViewTwo.reloadData()
+                self.compareStats()
                 //self.timeLabel.text = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .ShortStyle, timeStyle: .LongStyle)
             }
         }
@@ -223,6 +224,37 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             
         }
+    }
+    
+    func compareStats(){
+        
+        for i in 0..<self.destiny.wantedStats.count{
+            let index = NSIndexPath.init(forRow: i, inSection: 0)
+            
+            let cellOne = self.tableViewOne.cellForRowAtIndexPath(index)! as UITableViewCell
+            let cellTwo = self.tableViewTwo.cellForRowAtIndexPath(index)! as UITableViewCell
+            
+            if((cellOne.detailTextLabel!.text != "N/A") && (cellTwo.detailTextLabel!.text != "N/A")){
+                
+                let cellOneNumber = Double(cellOne.detailTextLabel!.text!)
+                let cellTwoNumber = Double(cellTwo.detailTextLabel!.text!)
+                
+                print("Comparing \(cellOneNumber) and \(cellTwoNumber)")
+                if(cellOneNumber > cellTwoNumber){
+                    cellOne.backgroundColor = UIColor.greenColor()
+                    cellTwo.backgroundColor = UIColor.whiteColor()
+                    print("Cell1 Larger")
+                }
+                else{
+                    cellOne.backgroundColor = UIColor.whiteColor()
+                    cellTwo.backgroundColor = UIColor.greenColor()
+                    print("Cell2Larger")
+                    
+                }
+            }
+            
+        }
+
     }
     
     
