@@ -132,9 +132,15 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
             var count: Int = 0
             for i in self.destiny.wantedStats{
                 if let stat = pvpStats[i] as? Dictionary<String, AnyObject>{
-                    if let value = stat["basic"] as? Dictionary<String, AnyObject>{
-                        if let displayValue = value["displayValue"] as? String{
-                            self.destiny.stats.insert(displayValue, atIndex: count)
+                    if let basic = stat["basic"] as? Dictionary<String, AnyObject>{
+                        if(i == "secondsPlayed"){
+                            if let value = basic["value"] as? Int{
+                                self.destiny.stats[count] = String(value)
+                                count++
+                            }
+                        }
+                        else if let displayValue = basic["displayValue"] as? String{
+                            self.destiny.stats[count] = displayValue
                             count++
                         }
                     }
@@ -154,8 +160,19 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = self.statTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         
-        cell.textLabel?.text = self.destiny.displayText[indexPath.row]
-        cell.detailTextLabel?.text = self.destiny.stats[indexPath.row]
+        let displayText = self.destiny.displayText[indexPath.row]
+        var statText = self.destiny.stats[indexPath.row]
+        
+        if(displayText == "Time Played" && statText != "N/A"){
+            let value = Int(statText)!
+            let seconds = value % 60
+            let minutes = (value / 60) % 60
+            let hours = (value / 3600)
+            statText = "\(hours):\(minutes):\(seconds)"
+        }
+        
+        cell.textLabel?.text = displayText
+        cell.detailTextLabel?.text = statText
         
         return cell
     }

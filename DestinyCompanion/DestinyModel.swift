@@ -13,8 +13,9 @@ public class DestinyModel{
     var memberType: Int = 0
     var memberId: String = ""
     
-    var wantedStats: [String] = ["killsDeathsRatio", "winLossRatio", "bestSingleGameScore", "precisionKills", "longestKillSpree"]
-    var displayText: [String] = ["K/D", "Win/Loss", "Best Single Game Score", "Precision Kills", "Longest Kill Spree"]
+    //These must always be the same length
+    var wantedStats: [String] = ["killsDeathsRatio", "winLossRatio", "bestSingleGameScore", "precisionKills", "longestKillSpree", "secondsPlayed"]
+    var displayText: [String] = ["K/D", "Win/Loss", "Best Single Game Score", "Precision Kills", "Longest Kill Spree", "Time Played"]
     var stats: [String] = []
     
     var characterStats = [String: AnyObject]()

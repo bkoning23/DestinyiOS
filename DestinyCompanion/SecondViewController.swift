@@ -8,9 +8,10 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     
+    @IBOutlet weak var titleTableView: UITableView!
     @IBOutlet weak var platformImageTwo: UIImageView!
     @IBOutlet weak var platformImageOne: UIImageView!
     @IBOutlet weak var textInputTwo: UITextField!
@@ -61,7 +62,15 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             guardianTwoStats.append("N/A")
         }
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
         
+        self.textInputOne.delegate = self
+        self.textInputTwo.delegate = self
+        
+        tableViewOne.tableFooterView = UIView()
+        tableViewTwo.tableFooterView = UIView()
+        titleTableView.tableFooterView = UIView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,6 +99,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         else{
             self.currentGuardianOneLabel.text = "Invalid Name"
         }
+        dismissKeyboard()
         
         
     }
@@ -116,7 +126,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         else{
             self.currentGuardianTwoLabel.text = "Invalid Name"
         }
-        
+        dismissKeyboard()
         
         
     }
@@ -127,19 +137,26 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             var count: Int = 0
             for i in self.destiny.wantedStats{
                 if let stat = pvpStats[i] as? Dictionary<String, AnyObject>{
-                    if let value = stat["basic"] as? Dictionary<String, AnyObject>{
-                        if let displayValue = value["displayValue"] as? String{
+                    if let basic = stat["basic"] as? Dictionary<String, AnyObject>{
+                        if(i == "secondsPlayed"){
+                            if let value = basic["value"] as? Int{
+                                if(guardianNumber == 1){
+                                    self.guardianOneStats[count] = String(value)
+                                }
+                                if(guardianNumber == 2){
+                                    self.guardianTwoStats[count] = String(value)
+                                }
+                            }
+                        }
+                        else if let displayValue = basic["displayValue"] as? String{
                             if(guardianNumber == 1){
-                                //TODO: Array fills up with junk when pushing the button a few times.
-                                //self.guardianOneStats = []
-                                self.guardianOneStats.insert(displayValue, atIndex: count)
+                                self.guardianOneStats[count] = displayValue
                             }
                             if(guardianNumber == 2){
-                                //self.guardianTwoStats = []
-                                self.guardianTwoStats.insert(displayValue, atIndex: count)
+                                self.guardianTwoStats[count] = displayValue
                             }
-                            count++
                         }
+                        count++
                     }
                 }
             }
@@ -162,14 +179,37 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if(tableView == self.tableViewOne){
             let cell: UITableViewCell = self.tableViewOne.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-            cell.textLabel?.text = self.destiny.displayText[indexPath.row]
-            cell.detailTextLabel?.text = self.guardianOneStats[indexPath.row]
+            
+            var value = self.guardianOneStats[indexPath.row]
+            
+            if((self.destiny.displayText[indexPath.row] == "Time Played") && value != "N/A"){
+                value = self.convertTime(Int(value)!)
+            }
+            
+            cell.textLabel?.text = value
+            cell.layoutMargins = UIEdgeInsetsZero
+            cell.preservesSuperviewLayoutMargins = false
+            return cell
+        }
+        else if(tableView == self.tableViewTwo){
+            let cell: UITableViewCell = self.tableViewTwo.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+            
+            var value = self.guardianTwoStats[indexPath.row]
+            
+            if((self.destiny.displayText[indexPath.row] == "Time Played") && value != "N/A"){
+                value = self.convertTime(Int(value)!)
+            }
+            
+            cell.textLabel?.text = value
+            cell.layoutMargins = UIEdgeInsetsZero
+            cell.preservesSuperviewLayoutMargins = false
             return cell
         }
         else{
-            let cell: UITableViewCell = self.tableViewTwo.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+            let cell: UITableViewCell = self.titleTableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
             cell.textLabel?.text = self.destiny.displayText[indexPath.row]
-            cell.detailTextLabel?.text = self.guardianTwoStats[indexPath.row]
+            cell.layoutMargins = UIEdgeInsetsZero
+            cell.preservesSuperviewLayoutMargins = false
             return cell
         }
     }
@@ -234,29 +274,46 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let cellOne = self.tableViewOne.cellForRowAtIndexPath(index)! as UITableViewCell
             let cellTwo = self.tableViewTwo.cellForRowAtIndexPath(index)! as UITableViewCell
             
-            if((cellOne.detailTextLabel!.text != "N/A") && (cellTwo.detailTextLabel!.text != "N/A")){
-                
-                let cellOneNumber = Double(cellOne.detailTextLabel!.text!)
-                let cellTwoNumber = Double(cellTwo.detailTextLabel!.text!)
-                
-                print("Comparing \(cellOneNumber) and \(cellTwoNumber)")
+            let cellOneNumber = self.guardianOneStats[i]
+            let cellTwoNumber = self.guardianTwoStats[i]
+            
+            if((cellOneNumber != "N/A") && (cellTwoNumber != "N/A")){
+
+                //print("Comparing \(cellOneNumber) and \(cellTwoNumber)")
                 if(cellOneNumber > cellTwoNumber){
                     cellOne.backgroundColor = UIColor.greenColor()
                     cellTwo.backgroundColor = UIColor.whiteColor()
-                    print("Cell1 Larger")
+                    //print("Cell1 Larger")
                 }
                 else{
                     cellOne.backgroundColor = UIColor.whiteColor()
                     cellTwo.backgroundColor = UIColor.greenColor()
-                    print("Cell2Larger")
+                    //print("Cell2Larger")
                     
                 }
             }
             
         }
-
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool{
+        if(textField == textInputOne){
+            buttonOnePressed(self)
+        }
+        if(textField == textInputTwo){
+            buttonTwoPressed(self)
+        }
+        dismissKeyboard()
+        return true
+    }
+    
+    func convertTime(value: Int) -> String{
+        let seconds = value % 60
+        let minutes = (value / 60) % 60
+        let hours = (value / 3600)
+        return ("\(hours):\(minutes):\(seconds)")
     }
     
     
 }
-
