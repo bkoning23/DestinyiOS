@@ -221,51 +221,40 @@
                                 </connections>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Cookieking232" borderStyle="bezel" placeholder="Enter PSNID" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="JDw-Pl-goT">
-                                <rect key="frame" x="289" y="96" width="261" height="30"/>
+                                <rect key="frame" x="289" y="57" width="261" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvO-c2-MVn">
-                                <rect key="frame" x="289" y="141" width="158" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvO-c2-MVn">
+                                <rect key="frame" x="289" y="138" width="261" height="40"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrY-PJ-5aL">
-                                <rect key="frame" x="655" y="138" width="131" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrY-PJ-5aL">
+                                <rect key="frame" x="655" y="138" width="261" height="40"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" onImage="psnicon" offImage="xboxicon" translatesAutoresizingMaskIntoConstraints="NO" id="O32-m7-okn">
-                                <rect key="frame" x="448" y="138" width="51" height="31"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.20229469820000001" green="0.98431372549999996" blue="0.29876740810000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.20229469820000001" green="0.98431372549999996" blue="0.29876740810000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="onTintColor" red="0.33405418349999999" green="0.36624429190000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" onImage="psnicon" offImage="xboxicon" translatesAutoresizingMaskIntoConstraints="NO" id="7ef-xJ-552">
-                                <rect key="frame" x="818" y="138" width="51" height="31"/>
+                                <rect key="frame" x="368" y="98" width="51" height="31"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.20229469820000001" green="0.98431372549999996" blue="0.29876740810000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.20229469820000001" green="0.98431372549999996" blue="0.29876740810000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="onTintColor" red="0.33405418349999999" green="0.36624429190000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="beingtoonosey" borderStyle="bezel" placeholder="Enter PSNID" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="kMM-Lt-cZ8">
-                                <rect key="frame" x="655" y="95" width="261" height="30"/>
+                                <rect key="frame" x="655" y="56" width="261" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FqC-Xo-ehF">
-                                <rect key="frame" x="509" y="135" width="41" height="37"/>
-                                <animations/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VgD-wL-cC2">
-                                <rect key="frame" x="875" y="135" width="41" height="37"/>
+                                <rect key="frame" x="429" y="95" width="41" height="37"/>
                                 <animations/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7za-EE-2sx">
@@ -332,7 +321,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rao-g2-YNQ">
-                                <rect key="frame" x="570" y="96" width="46" height="30"/>
+                                <rect key="frame" x="570" y="57" width="46" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -340,13 +329,24 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2n-rn-Qdg">
-                                <rect key="frame" x="938" y="95" width="46" height="30"/>
+                                <rect key="frame" x="938" y="56" width="46" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="buttonTwoPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="0OI-rE-vWR"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" onImage="psnicon" offImage="xboxicon" translatesAutoresizingMaskIntoConstraints="NO" id="7ef-xJ-552">
+                                <rect key="frame" x="736" y="98" width="51" height="31"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.20229469820000001" green="0.98431372549999996" blue="0.29876740810000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.20229469820000001" green="0.98431372549999996" blue="0.29876740810000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="0.33405418349999999" green="0.36624429190000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VgD-wL-cC2">
+                                <rect key="frame" x="793" y="95" width="41" height="37"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

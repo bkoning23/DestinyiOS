@@ -87,7 +87,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         self.currentGuardianOneLabel.text = error
                     }
                     else{
-                        self.currentGuardianOneLabel.text = name
+                        self.currentGuardianOneLabel.text = ("\(name!)'s Stats")
                         self.currentGuardianOneLabel.font = UIFont(name: "Helvetica Neue", size: 20)
                         self.currentGuardianOneId = memberId
                         self.currentGuardianOneName = name!
@@ -114,7 +114,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         self.currentGuardianTwoLabel.text = error
                     }
                     else{
-                        self.currentGuardianTwoLabel.text = name
+                        self.currentGuardianTwoLabel.text = ("\(name!)'s Stats")
                         self.currentGuardianTwoLabel.font = UIFont(name: "Helvetica Neue", size: 20)
                         self.currentGuardianTwoId = memberId
                         self.currentGuardianTwoName = name!
@@ -311,8 +311,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func convertTime(value: Int) -> String{
         let seconds = value % 60
         let minutes = (value / 60) % 60
-        let hours = (value / 3600)
-        return ("\(hours):\(minutes):\(seconds)")
+        let hours = (value / 3600) % 24
+        let days = (value / 86400)
+        return ("\(days)d:\(hours)h:\(minutes)m:\(seconds)s")
     }
     
     

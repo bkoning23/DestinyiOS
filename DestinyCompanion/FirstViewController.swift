@@ -167,8 +167,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
             let value = Int(statText)!
             let seconds = value % 60
             let minutes = (value / 60) % 60
-            let hours = (value / 3600)
-            statText = "\(hours):\(minutes):\(seconds)"
+            let hours = (value / 3600) % 24
+            let days = (value / 86400)
+            statText = "\(days)d:\(hours)h:\(minutes)m:\(seconds)s"
         }
         
         cell.textLabel?.text = displayText
