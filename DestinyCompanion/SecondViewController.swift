@@ -10,7 +10,10 @@ import UIKit
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableLabelTwo: UILabel!
+    @IBOutlet weak var tableLabelOne: UILabel!
     
+    @IBOutlet weak var tableLabelTitle: UILabel!
     @IBOutlet weak var titleTableView: UITableView!
     @IBOutlet weak var platformImageTwo: UIImageView!
     @IBOutlet weak var platformImageOne: UIImageView!
@@ -145,8 +148,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
             dispatch_async(dispatch_get_main_queue()) {
-                self.tableViewOne.reloadData()
-                self.tableViewTwo.reloadData()
+                self.titleTableView.reloadData()
                 self.compareStats()
                 //self.timeLabel.text = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .ShortStyle, timeStyle: .LongStyle)
             }
@@ -161,23 +163,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if(tableView == self.tableViewOne){
-            let cell: UITableViewCell = self.tableViewOne.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-            cell.textLabel?.text = self.guardianOneStats[indexPath.row]
+            let cell = self.titleTableView.dequeueReusableCellWithIdentifier("cell") as! CustomCompareCell
+            cell.labelTitle.text = self.destiny.displayText[indexPath.row]
+            cell.labelFirst.text = self.guardianOneStats[indexPath.row]
+            cell.labelSecond.text = self.guardianTwoStats[indexPath.row]
             //cell.detailTextLabel?.text = self.guardianOneStats[indexPath.row]
             return cell
-        }
-        else if(tableView == self.tableViewTwo){
-            let cell: UITableViewCell = self.tableViewTwo.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-            cell.textLabel?.text = self.guardianTwoStats[indexPath.row]
-            //cell.detailTextLabel?.text = self.guardianTwoStats[indexPath.row]
-            return cell
-        }
-        else{
-            let cell: UITableViewCell = self.titleTableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-            cell.textLabel?.text = self.destiny.displayText[indexPath.row]
-            return cell
-        }
+
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -233,17 +225,16 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func compareStats(){
-        
+        /*
         for i in 0..<self.destiny.wantedStats.count{
             let index = NSIndexPath.init(forRow: i, inSection: 0)
             
-            let cellOne = self.tableViewOne.cellForRowAtIndexPath(index)! as UITableViewCell
-            let cellTwo = self.tableViewTwo.cellForRowAtIndexPath(index)! as UITableViewCell
+            let cell = self.titleTableView.cellForRowAtIndexPath(index)! as! CustomCompareCell
             
-            if((cellOne.textLabel!.text != "N/A") && (cellTwo.textLabel!.text != "N/A")){
+            if((cell.labelFirst!.text != "N/A") && (cell.labelSecond!.text != "N/A")){
                 
-                let cellOneNumber = Double(cellOne.textLabel!.text!)
-                let cellTwoNumber = Double(cellTwo.textLabel!.text!)
+                let cellOneNumber = Double(cell.labelFirst!.text)
+                let cellTwoNumber = Double(cell.labelSecond!.text )
                 
                 //print("Comparing \(cellOneNumber) and \(cellTwoNumber)")
                 if(cellOneNumber > cellTwoNumber){
@@ -260,6 +251,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             
         }
+*/
 
     }
     

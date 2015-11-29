@@ -18,6 +18,7 @@
 		FF08D3E51BD41B0E00B38287 /* DestinyCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08D3E41BD41B0E00B38287 /* DestinyCompanionUITests.swift */; };
 		FF08D3F31BD454DD00B38287 /* RequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08D3F21BD454DD00B38287 /* RequestDelegate.swift */; };
 		FF56341E1C07F86600422118 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF56341D1C07F86600422118 /* ThirdViewController.swift */; };
+		FF66BD561C0B73DE004B06D2 /* CustomCompareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF66BD551C0B73DE004B06D2 /* CustomCompareCell.swift */; };
 		FFDD79A81C08AFCC00346C97 /* DestinyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD79A71C08AFCC00346C97 /* DestinyModel.swift */; };
 		FFDD79AA1C08B4CC00346C97 /* DestinyTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD79A91C08B4CC00346C97 /* DestinyTabBarControllerViewController.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		FF08D3E61BD41B0E00B38287 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF08D3F21BD454DD00B38287 /* RequestDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDelegate.swift; sourceTree = "<group>"; };
 		FF56341D1C07F86600422118 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		FF66BD551C0B73DE004B06D2 /* CustomCompareCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCompareCell.swift; sourceTree = "<group>"; };
 		FFDD79A71C08AFCC00346C97 /* DestinyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinyModel.swift; sourceTree = "<group>"; };
 		FFDD79A91C08B4CC00346C97 /* DestinyTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinyTabBarControllerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +131,7 @@
 				FF08D3C61BD41B0E00B38287 /* SecondViewController.swift */,
 				FF56341D1C07F86600422118 /* ThirdViewController.swift */,
 				FF08D3C81BD41B0E00B38287 /* Main.storyboard */,
+				FF66BD551C0B73DE004B06D2 /* CustomCompareCell.swift */,
 				FFDD79A71C08AFCC00346C97 /* DestinyModel.swift */,
 				FFDD79A91C08B4CC00346C97 /* DestinyTabBarControllerViewController.swift */,
 				FF08D3CB1BD41B0E00B38287 /* Assets.xcassets */,
@@ -352,6 +355,7 @@
 				FF08D3C71BD41B0E00B38287 /* SecondViewController.swift in Sources */,
 				FF56341E1C07F86600422118 /* ThirdViewController.swift in Sources */,
 				FF08D3C31BD41B0E00B38287 /* AppDelegate.swift in Sources */,
+				FF66BD561C0B73DE004B06D2 /* CustomCompareCell.swift in Sources */,
 				FFDD79A81C08AFCC00346C97 /* DestinyModel.swift in Sources */,
 				FFDD79AA1C08B4CC00346C97 /* DestinyTabBarControllerViewController.swift in Sources */,
 				FF08D3C51BD41B0E00B38287 /* FirstViewController.swift in Sources */,
