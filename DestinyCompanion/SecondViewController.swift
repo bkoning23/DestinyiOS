@@ -11,6 +11,7 @@ import UIKit
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    @IBOutlet weak var titleTableView: UITableView!
     @IBOutlet weak var platformImageTwo: UIImageView!
     @IBOutlet weak var platformImageOne: UIImageView!
     @IBOutlet weak var textInputTwo: UITextField!
@@ -162,14 +163,19 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if(tableView == self.tableViewOne){
             let cell: UITableViewCell = self.tableViewOne.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-            cell.textLabel?.text = self.destiny.displayText[indexPath.row]
-            cell.detailTextLabel?.text = self.guardianOneStats[indexPath.row]
+            cell.textLabel?.text = self.guardianOneStats[indexPath.row]
+            //cell.detailTextLabel?.text = self.guardianOneStats[indexPath.row]
+            return cell
+        }
+        else if(tableView == self.tableViewTwo){
+            let cell: UITableViewCell = self.tableViewTwo.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+            cell.textLabel?.text = self.guardianTwoStats[indexPath.row]
+            //cell.detailTextLabel?.text = self.guardianTwoStats[indexPath.row]
             return cell
         }
         else{
-            let cell: UITableViewCell = self.tableViewTwo.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+            let cell: UITableViewCell = self.titleTableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
             cell.textLabel?.text = self.destiny.displayText[indexPath.row]
-            cell.detailTextLabel?.text = self.guardianTwoStats[indexPath.row]
             return cell
         }
     }
@@ -234,21 +240,21 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let cellOne = self.tableViewOne.cellForRowAtIndexPath(index)! as UITableViewCell
             let cellTwo = self.tableViewTwo.cellForRowAtIndexPath(index)! as UITableViewCell
             
-            if((cellOne.detailTextLabel!.text != "N/A") && (cellTwo.detailTextLabel!.text != "N/A")){
+            if((cellOne.textLabel!.text != "N/A") && (cellTwo.textLabel!.text != "N/A")){
                 
-                let cellOneNumber = Double(cellOne.detailTextLabel!.text!)
-                let cellTwoNumber = Double(cellTwo.detailTextLabel!.text!)
+                let cellOneNumber = Double(cellOne.textLabel!.text!)
+                let cellTwoNumber = Double(cellTwo.textLabel!.text!)
                 
-                print("Comparing \(cellOneNumber) and \(cellTwoNumber)")
+                //print("Comparing \(cellOneNumber) and \(cellTwoNumber)")
                 if(cellOneNumber > cellTwoNumber){
                     cellOne.backgroundColor = UIColor.greenColor()
                     cellTwo.backgroundColor = UIColor.whiteColor()
-                    print("Cell1 Larger")
+                    //print("Cell1 Larger")
                 }
                 else{
                     cellOne.backgroundColor = UIColor.whiteColor()
                     cellTwo.backgroundColor = UIColor.greenColor()
-                    print("Cell2Larger")
+                    //print("Cell2Larger")
                     
                 }
             }
