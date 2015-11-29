@@ -234,7 +234,7 @@
 				TargetAttributes = {
 					FF08D3BE1BD41B0E00B38287 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 3BSAXAKUPM;
+						DevelopmentTeam = P4LP54G37Z;
 					};
 					FF08D3D41BD41B0E00B38287 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -498,7 +498,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DestinyCompanion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bk.DestinyCompanion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brendankoning.cruciblehandbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -512,7 +512,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DestinyCompanion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bk.DestinyCompanion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brendankoning.cruciblehandbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 			};

@@ -279,16 +279,16 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             if((cellOneNumber != "N/A") && (cellTwoNumber != "N/A")){
 
-                print("Comparing \(cellOneNumber) and \(cellTwoNumber)")
+                //print("Comparing \(cellOneNumber) and \(cellTwoNumber)")
                 if(Double(cellOneNumber) > Double(cellTwoNumber)){
                     cellOne.backgroundColor = UIColor.greenColor()
                     cellTwo.backgroundColor = UIColor.whiteColor()
-                    print("Cell1 Larger")
+                    //print("Cell1 Larger")
                 }
                 else{
                     cellOne.backgroundColor = UIColor.whiteColor()
                     cellTwo.backgroundColor = UIColor.greenColor()
-                    print("Cell2Larger")
+                    //print("Cell2Larger")
                     
                 }
             }
