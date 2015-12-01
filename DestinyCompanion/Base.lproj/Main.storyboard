@@ -175,7 +175,7 @@
             </objects>
             <point key="canvasLocation" x="956" y="-466"/>
         </scene>
-        <!--Second-->
+        <!--Compare Stats-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="DestinyCompanion" customModuleProvider="target" sceneMemberID="viewController">
@@ -351,7 +351,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Compare Stats" image="CompareIconBar" id="cPa-gy-q4n"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
@@ -417,8 +417,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CompareIconBar" width="25" height="25"/>
         <image name="psnicon" width="150" height="150"/>
-        <image name="second" width="30" height="30"/>
         <image name="xboxicon" width="250" height="250"/>
     </resources>
 </document>
