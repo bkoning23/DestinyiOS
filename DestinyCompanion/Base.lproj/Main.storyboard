@@ -336,6 +336,21 @@
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="bKZ-Jp-78Z"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asdfasdf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvO-c2-MVn">
+                                <rect key="frame" x="272" y="146" width="237" height="26"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2n-rn-Qdg">
+                                <rect key="frame" x="668" y="47" width="46" height="42"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonTwoPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="0OI-rE-vWR"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aOb-n1-Dfy">
                                 <rect key="frame" x="272" y="180" width="237" height="787"/>
                                 <animations/>
@@ -401,21 +416,6 @@
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="fvZ-NX-k7I"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asdfasdf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvO-c2-MVn">
-                                <rect key="frame" x="272" y="146" width="237" height="26"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2n-rn-Qdg">
-                                <rect key="frame" x="668" y="47" width="46" height="42"/>
-                                <animations/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonTwoPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="0OI-rE-vWR"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -428,6 +428,7 @@
                             <constraint firstItem="nvO-c2-MVn" firstAttribute="top" secondItem="FqC-Xo-ehF" secondAttribute="bottom" constant="9" id="5mx-6w-yTV"/>
                             <constraint firstItem="7za-EE-2sx" firstAttribute="leading" secondItem="JrY-PJ-5aL" secondAttribute="leading" id="7k5-NY-G9X"/>
                             <constraint firstItem="nvO-c2-MVn" firstAttribute="top" secondItem="O32-m7-okn" secondAttribute="bottom" constant="14" id="8SG-Do-Bpd"/>
+                            <constraint firstItem="JDw-Pl-goT" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="252" id="Dlw-Tr-M4e"/>
                             <constraint firstItem="kMM-Lt-cZ8" firstAttribute="leading" secondItem="rao-g2-YNQ" secondAttribute="trailing" constant="20" id="DpK-Cm-xAO"/>
                             <constraint firstItem="O32-m7-okn" firstAttribute="leading" secondItem="JDw-Pl-goT" secondAttribute="leading" id="E5w-hq-fBS"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="JrY-PJ-5aL" secondAttribute="bottom" constant="802" id="EVr-kr-Psz"/>
@@ -458,6 +459,7 @@
                             <constraint firstItem="JrY-PJ-5aL" firstAttribute="top" secondItem="U2n-rn-Qdg" secondAttribute="bottom" constant="57" id="k3d-4E-RIZ"/>
                             <constraint firstItem="U2n-rn-Qdg" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="27" id="kN6-g7-ovD"/>
                             <constraint firstItem="nvO-c2-MVn" firstAttribute="centerY" secondItem="JrY-PJ-5aL" secondAttribute="centerY" id="kd5-LL-s2q"/>
+                            <constraint firstItem="aOb-n1-Dfy" firstAttribute="width" secondItem="7za-EE-2sx" secondAttribute="width" constant="-2" id="mCQ-Eo-qY9"/>
                             <constraint firstItem="7ef-xJ-552" firstAttribute="leading" secondItem="kMM-Lt-cZ8" secondAttribute="leading" id="pir-Va-Ybg"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="aOb-n1-Dfy" secondAttribute="bottom" constant="8" symbolic="YES" id="qcC-p1-kWj"/>
                             <constraint firstItem="7ef-xJ-552" firstAttribute="leading" secondItem="JrY-PJ-5aL" secondAttribute="leading" id="qy9-hF-deu"/>
