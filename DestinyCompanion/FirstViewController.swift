@@ -14,7 +14,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
     
     @IBOutlet weak var timeLabel: UILabel!
     
-    @IBOutlet weak var successLabel: UILabel!
     @IBOutlet weak var platformSwitch: UISwitch!
     @IBOutlet weak var platformImage: UIImageView!
     @IBOutlet weak var nameInput: UITextField!
@@ -68,10 +67,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
             destiny.getUserId(name!, membershipType: destiny.memberType) {memberId, error in
                 dispatch_async(dispatch_get_main_queue()){
                     if(error != "None"){
-                        self.successLabel.text = error
+                        self.currentPlayerLabel.text = error
                     }
                     else{
-                        self.successLabel.text = memberId
                         self.destiny.setMemberId(memberId)
                         self.currentPlayerLabel.text = name
                         self.currentPlayerLabel.font = UIFont(name: "Helvetica Neue", size: 20)
@@ -81,7 +79,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UITableViewDel
             }
         }
         else{
-            self.successLabel.text = "Invalid Name"
+            self.currentPlayerLabel.text = "Invalid Name"
         }
         dismissKeyboard()
     }

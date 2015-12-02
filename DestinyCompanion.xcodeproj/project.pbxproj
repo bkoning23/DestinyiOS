@@ -18,6 +18,7 @@
 		FF08D3E51BD41B0E00B38287 /* DestinyCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08D3E41BD41B0E00B38287 /* DestinyCompanionUITests.swift */; };
 		FF08D3F31BD454DD00B38287 /* RequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08D3F21BD454DD00B38287 /* RequestDelegate.swift */; };
 		FF56341E1C07F86600422118 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF56341D1C07F86600422118 /* ThirdViewController.swift */; };
+		FFB2A1C61C0E7F5C00F30922 /* NewLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB2A1C51C0E7F5C00F30922 /* NewLaunch.storyboard */; };
 		FFDD79A81C08AFCC00346C97 /* DestinyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD79A71C08AFCC00346C97 /* DestinyModel.swift */; };
 		FFDD79AA1C08B4CC00346C97 /* DestinyTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD79A91C08B4CC00346C97 /* DestinyTabBarControllerViewController.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		FF08D3E61BD41B0E00B38287 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF08D3F21BD454DD00B38287 /* RequestDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDelegate.swift; sourceTree = "<group>"; };
 		FF56341D1C07F86600422118 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		FFB2A1C51C0E7F5C00F30922 /* NewLaunch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewLaunch.storyboard; sourceTree = "<group>"; };
 		FFDD79A71C08AFCC00346C97 /* DestinyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinyModel.swift; sourceTree = "<group>"; };
 		FFDD79A91C08B4CC00346C97 /* DestinyTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinyTabBarControllerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 				FFDD79A91C08B4CC00346C97 /* DestinyTabBarControllerViewController.swift */,
 				FF08D3CB1BD41B0E00B38287 /* Assets.xcassets */,
 				FF08D3CD1BD41B0E00B38287 /* LaunchScreen.storyboard */,
+				FFB2A1C51C0E7F5C00F30922 /* NewLaunch.storyboard */,
 				FF08D3D01BD41B0E00B38287 /* Info.plist */,
 			);
 			path = DestinyCompanion;
@@ -273,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB2A1C61C0E7F5C00F30922 /* NewLaunch.storyboard in Resources */,
 				FF08D3CF1BD41B0E00B38287 /* LaunchScreen.storyboard in Resources */,
 				FF08D3CC1BD41B0E00B38287 /* Assets.xcassets in Resources */,
 				FF08D3CA1BD41B0E00B38287 /* Main.storyboard in Resources */,
@@ -495,6 +499,7 @@
 			baseConfigurationReference = 2592183229168BAD85F14178 /* Pods-DestinyCompanion.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DestinyCompanion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -509,6 +514,7 @@
 			baseConfigurationReference = A504DEA47829DD806F5E77D5 /* Pods-DestinyCompanion.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DestinyCompanion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
