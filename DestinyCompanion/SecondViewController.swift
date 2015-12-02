@@ -70,7 +70,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableViewOne.tableFooterView = UIView()
         tableViewTwo.tableFooterView = UIView()
-        titleTableView.tableFooterView = UIView()
+        titleTableView.tableFooterView = UIView()  
     }
     
     override func didReceiveMemoryWarning() {
